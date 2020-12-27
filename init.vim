@@ -13,9 +13,10 @@ set noshowmode
 
 
 call plug#begin()
-
+Plug 'sheerun/vim-polyglot'
+Plug 'machakann/vim-highlightedyank'
 " Themes
-Plug 'morhetz/gruvbox'
+Plug 'pineapplegiant/spaceduck'
 
 " IDE
 Plug 'vim-airline/vim-airline'
@@ -24,12 +25,19 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'zchee/deoplete-jedi'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
-
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = "hard"
-let g:airline_theme='deus'
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+colorscheme spaceduck
+let g:airline_theme='spaceduck'
+let g:lightline = {
+  \ 'colorscheme': 'spaceduck',
+  \ }
 let NERDTreeQuitOnOpen=1
 
 
